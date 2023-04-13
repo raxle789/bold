@@ -1,0 +1,115 @@
+import React, { useState, useEffect } from 'react';
+
+const Calendar = () => {
+  const [date, setDate] = useState(new Date());
+
+  const renderCalendar = () => {
+    setDate((prevDate) => {
+      const newDate = new Date(prevDate);
+      newDate.setDate(1);
+
+      const monthDays = document.querySelector('.days');
+
+      const lastDay = new Date(
+        newDate.getFullYear(),
+        newDate.getMonth() + 1,
+        0
+      ).getDate();
+
+      const prevLastDay = new Date(
+        newDate.getFullYear(),
+        newDate.getMonth(),
+        0
+      ).getDate();
+
+      const firstDayIndex = newDate.getDay();
+
+      const lastDayIndex = new Date(
+        newDate.getFullYear(),
+        newDate.getMonth() + 1,
+        0
+      ).getDay();
+
+      const nextDays = 7 - lastDayIndex - 1;
+
+      const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ];
+
+      document.querySelector(
+        '.date h1'
+      ).innerHTML = `${months[newDate.getMonth()]} ${newDate.getFullYear()}`;
+
+      document.querySelector('.date p').innerHTML = new Date().toDateString();
+
+      let days = '';
+
+      for (let x = firstDayIndex; x > 0; x--) {
+        days += `<div class="prev-date"></div>`;
+      }
+
+      for (let i = 1; i <= lastDay; i++) {
+        if (
+          i === new Date().getDate() &&
+          newDate.getMonth() === new Date().getMonth()
+        ) {
+          days += `<div class="today month-days">${i}</div>`;
+        } else {
+          days += `<div class="month-days">${i}</div>`;
+        }
+      }
+
+      // for (let j = 1; j <= nextDays; j++) {
+      //   days += `<div class="next-date">${j}</div>`;
+      // }
+      monthDays.innerHTML = days;
+
+      return newDate;
+    });
+  };
+
+  useEffect(() => {
+    renderCalendar();
+  }, [date]);
+
+  const prevMonth = () => {
+    setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1));
+  };
+
+  const nextMonth = () => {
+    setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1));
+  };
+
+  return (
+    <div className="calendar">
+      <div className="date">
+        <h1></h1>
+        <p></p>
+      </div>
+
+      <div className="header">
+        <div className="arrow prev" onClick={prevMonth}>
+          &#10094;
+        </div>
+        <div className="arrow next" onClick={nextMonth}>
+          &#10095;
+        </div>
+      </div>
+
+      <div className="days"></div>
+    </div>
+  );
+};
+
+export default Calendar;

@@ -1,0 +1,204 @@
+import './list.css';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import homeUnpressed from '../../assets/dashboard.svg';
+import listPressed from '../../assets/kalender ditekan.svg';
+import profileUnpressed from '../../assets/user.svg';
+import arrow from '../../assets/back-next.svg';
+import { addCollectionAndDocuments, getList } from '../../utils/firebase/firebase.util';
+import { userData } from '../log in/log-in.component';
+
+const List = () => {
+    const date = new Date();
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const renderCalendar = () => {
+        date.setDate(1);
+        const monthDays = document.querySelector('.days');
+        
+        const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        const firstDayIndex = date.getDay();
+        
+        
+        // document.querySelector('.date1-container h1').innerHTML = `${months[date.getMonth()]}`;
+        document.querySelector('.date1-container h3').innerHTML = `${date.getFullYear()}`;
+
+        let days = '';
+        for (let x = firstDayIndex; x > 0; x--) {
+            days += `<div class="prev-date"></div>`;
+        }
+        
+        for (let i = 1; i <= lastDay; i++) {
+            if (
+                i === new Date().getDate() &&
+                date.getMonth() === new Date().getMonth()
+                ) {
+                    days += `<div class="today month-days" data-day="${i}">${i}</div>`;
+                } else {
+                    days += `<div class="month-days" data-day="${i}">${i}</div>`;
+                }
+            }
+            
+            monthDays.innerHTML = days;
+            const monthDaysElements = document.querySelectorAll('.month-days');
+            monthDaysElements.forEach((element) => {
+                element.addEventListener('click', handleDayClick);
+            });
+            
+            return date;
+        };
+        
+    useEffect(() => {
+        renderCalendar();
+    }, [date]);
+
+    const prevMonth = () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+    };
+    const nextMonth = () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+    };
+    
+
+    const dataFromUser = userData();
+    const generateObject = (id, title, isComplete) => {
+        return {
+            id,
+            title,
+            isComplete
+        }
+    };
+    let formattedDate = '';
+    let selectedDay = date.getDate();
+    const dateSetting = (numberDate) => {
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${numberDate}-${month}-${year}`;
+    }
+    
+    const loadingData = 'LOAD';
+    const memoryContainer = document.querySelector('.memory-container');
+    document.addEventListener(loadingData, async function(){
+        formattedDate = dateSetting(selectedDay);
+        console.log(dataFromUser.uid);
+        await getList(dataFromUser.uid, formattedDate).then(result => {
+            memoryList = result;
+        });
+        console.log(memoryList);
+        // memoryContainer.innerHTML = memoryList.items[0];
+        // formattedDate = dateSetting(selectedDay);
+
+        // for (const item in memoryList[formattedDate]) {
+        //     const itemContainer = `<div class="item-container"></div>`;
+        //     const itemTitle = `<h3 class="item-title"></h3>`;
+        //     const checkButton = `<img src=${f} class="check-button" alt='check button' />`;
+        //     if (data[item].isComplete) {
+        //         tombolUndo.addEventListener('click', function(){
+        //             data[item].isComplete = false;
+        //         });
+        //     } else {
+        //         tombolCeklis.addEventListener('click', function(){
+        //             data[item].isComplete = true;
+        //         });
+        //     }
+
+        //     const deleteButton = `<img src=${f} class="delete-button" alt='delete button' />`;
+        //     deleteButton.addEventListener('click', function(){
+        //         const yakin = confirm("Apakah kamu yakin ingin menghapus?");
+        //         if(yakin){
+        //             data.splice(item, 1);
+        //             simpanData();
+        //         }
+        //     });
+        //     itemContainer.append(itemTitle, checkButton, deleteButton);
+        // memoryList = getList(dataFromUser.uid, formattedDate);
+        // if(memoryList.items.length !== 0) {
+            //     console.log(memoryList);
+            // } else {
+                //     console.log('emang ga ada');
+                // }
+    });
+            
+            
+    // let list = {items: [
+        //     {title: 'Menghafal Ibukota', isComplete: false}, 
+        //     {title: 'Menghafal Mata Uang', isComplete: false}
+        // ]};
+    let memoryList = {};
+    const inputMemoryList = async () => {
+        formattedDate = dateSetting(selectedDay);
+        
+        const userInput = document.querySelector(".memory-input").value;
+        await getList(dataFromUser.uid, formattedDate).then(result => {
+            memoryList = result;
+            console.log("memory list", memoryList);
+        });
+        // addCollectionAndDocuments(dataFromUser.uid, formattedDate, memoryList);
+        if("items" in memoryList) {
+            memoryList["items"].push(generateObject(+new Date(), userInput, false));
+            // console.log("masih oke");
+            // updateDocument(dataFromUser.uid, "items", memoryList);
+        } else {
+            memoryList["items"] = [generateObject(+new Date(), userInput, false)];
+        }
+        await addCollectionAndDocuments(dataFromUser.uid, formattedDate, memoryList);
+        document.dispatchEvent(new Event(loadingData));
+    }
+
+
+
+
+
+    const handleDayClick = (e) => {
+        selectedDay = e.target.dataset.day;
+        document.dispatchEvent(new Event(loadingData));
+    };
+    const handleEnterPress = (e) => {
+        if (e.key === 'Enter') {
+            inputMemoryList();
+        }
+    }
+    document.dispatchEvent(new Event(loadingData));
+    return (
+        <div>
+            <div className="header-gradient"></div>
+            <div className="header-gradient-cover"></div>
+            <h1 className='page-title'>List</h1>
+            <div className='navigation'>
+                <Link to="/home"><img src={homeUnpressed} alt="home unpressed" className='home-button' /></Link>
+                <Link to="/list"><img src={listPressed} alt="list pressed" className='list-button' /></Link>
+                <Link to="/profile"><img src={profileUnpressed} alt="profile unpressed" className='profile-button' /></Link>
+            </div>
+            <div className="calendar-container">
+                <div className="date1-container">
+                    <h1 className='month'>{`${months[date.getMonth()]}`}</h1>
+                    <h3 className='year'></h3>
+                </div>
+                <div className="arrow-prev-container" onClick={prevMonth}><img src={arrow} alt="arrow prev" className="arrow-prev" /></div>
+                <div className="arrow-next-container" onClick={nextMonth}><img src={arrow} alt="arrow next" className="arrow-next" /></div>
+                <div className='date2-container'>
+                    <div className='weekdays'>
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div className="days"></div>
+                </div>
+            </div>
+            <input type='text' className='memory-input' onKeyPress={handleEnterPress} />
+            <div id='input-memory' className='memory-container'>
+            {memoryList.items.map((unit, index)=>(
+                <div className='memory-item'>
+                  <h3 key={unit.items[index].id} className='memory-title'>{unit.items[index].title}</h3>
+                </div>
+              ))}</div>
+        </div>
+    );
+}
+
+export default List;

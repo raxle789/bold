@@ -1,0 +1,165 @@
+import './list.css';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import homeUnpressed from '../../assets/dashboard.svg';
+import listPressed from '../../assets/kalender ditekan.svg';
+import profileUnpressed from '../../assets/user.svg';
+import checkSign from '../../assets/ceklis.svg';
+import wasteUnpressed from '../../assets/sampah.svg';
+import wastePressed from '../../assets/sampah ditekan.svg';
+import arrow from '../../assets/back-next.svg';
+import { addCollectionAndDocuments, getList } from '../../utils/firebase/firebase.util';
+import { userData } from '../log in/log-in.component';
+
+const List = () => {
+    const [date, setDate] = useState(new Date());
+    const [lastDays, setLastDays] = useState(1);
+    const [datePrint, setDatePrint] = useState("");
+    const [firstDayIndex, setFirstDayIndex] = useState(date.getDay());
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    const renderCalendar = () => {
+      date.setDate(1);
+      setFirstDayIndex(date.getDay());
+      setLastDays(new Date(date.getFullYear(), date.getMonth()+1, 0).getDate());
+    };
+
+    useEffect(() => {
+      renderCalendar();
+    }, [date]);
+
+    const prevMonth = () => {
+      setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1));
+    };
+
+    const nextMonth = () => {
+      setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1));
+    };
+    
+    const dataFromUser = userData();
+    let selectedDay = new Date();
+    const dateSetting = (numberDate) => {
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      return `${numberDate}-${month}-${year}`;
+    }
+    let formattedDate = dateSetting(selectedDay.getDate());
+    
+    // let list = {items: [
+    //         {id: '1241435', title: 'Menghafal Ibukota', isComplete: false}, 
+    //         {id: '1241455', title: 'Menghafal Mata Uang', isComplete: false}
+    //     ]};
+    // let [memoryList, setMemoryList] = useState({items: []});
+    // console.log("memory list", memoryList);
+    // const daftar = async () => {
+      //   await getList(dataFromUser.uid, formattedDate).then(result => {
+        //     memoryList = result;
+        //   });
+        // }
+        // setMemoryList( daftar );
+
+
+
+    let [memoryList, setMemoryList] = useState({items: []});
+    const getData = async ()=>{
+      try {
+        console.log("id: ", dataFromUser.uid);
+        console.log('getData', formattedDate);
+        const data = await getList(dataFromUser.uid, formattedDate);
+        setMemoryList(memoryList = data);
+      } catch(e) {
+        console.log('gagal');
+      }
+    }
+    useEffect( ()=>{
+      getData();
+    }, [] );
+
+    useEffect(()=>{
+      setDatePrint( dateSetting(selectedDay.getDate()))
+    },[selectedDay])
+    const generateObject = (id, title, isComplete) => {
+      return {
+          id,
+          title,
+          isComplete
+      }
+    };
+    const inputMemoryList = async (value) => {
+      if("items" in memoryList) {
+        memoryList["items"].push(generateObject(+new Date(), value, false));
+      } else {
+        memoryList["items"] = [generateObject(+new Date(), value, false)];
+      }
+      await addCollectionAndDocuments(dataFromUser.uid, formattedDate, memoryList);
+      console.log('input', formattedDate);
+      getData();
+    }
+
+
+    const handleDayClick = (e) => {
+      const number = e.target.dataset.day;
+      date.setDate(Number(number));
+      formattedDate = dateSetting(number);
+      console.log('handleday ', formattedDate);
+      getData();
+    };
+    const handleEnterPress = (e) => {
+        if (e.key === 'Enter') {
+          inputMemoryList(e.target.value);
+        }
+    }
+    return (
+        <div>
+            <div className="header-gradient"></div>
+            <div className="header-gradient-cover"></div>
+            <h1 className='page-title'>List</h1>
+            <div className='navigation'>
+                <Link to="/home"><img src={homeUnpressed} alt="home unpressed" className='home-button' /></Link>
+                <Link to="/list"><img src={listPressed} alt="list pressed" className='list-button' /></Link>
+                <Link to="/profile"><img src={profileUnpressed} alt="profile unpressed" className='profile-button' /></Link>
+            </div>
+            <div className="calendar-container">
+                <div className="date1-container">
+                    <h1 className='month'>{months[date.getMonth()]}</h1>
+                    <h3 className='year'>{date.getFullYear()}</h3>
+                </div>
+                <div className="arrow-prev-container" onClick={prevMonth}><img src={arrow} alt="arrow prev" className="arrow-prev" /></div>
+                <div className="arrow-next-container" onClick={nextMonth}><img src={arrow} alt="arrow next" className="arrow-next" /></div>
+                <div className='date2-container'>
+                    <div className='weekdays'>
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div className="days">
+                      {[...Array(firstDayIndex).keys()].map(()=>(
+                      <div className='prev-date'></div>
+                      ))}
+                      {[...Array(lastDays).keys()].map((v)=>(
+                      <div className={`${  (v+1) === new Date().getDate() &&
+                        date.getMonth() === new Date().getMonth() ? 'today' : ''} month-days`} onClick={handleDayClick} data-day={v+1}>{v+1}</div>
+                      ))}
+                    </div>
+                </div>
+            </div>
+            <input type='text' className='memory-input' onKeyPress={handleEnterPress}/>
+            <h3 className='date-info'>{datePrint}</h3>
+            <div className='memory-container'>
+               {memoryList.items.map((unit)=>(
+                <div className='memory-item'>
+                  <h3 key={unit.id} className='memory-title'>{unit.title}</h3>
+                  {/* <img src={unit.isComplete ? null : checkSign} alt="is Complete Button" className='is-complete-button' />
+                  <img src={wasteUnpressed} alt="waste Button" className='waste-button' /> */}
+                </div>
+              ))}
+            </div>
+        </div>
+    );
+}
+
+export default List;

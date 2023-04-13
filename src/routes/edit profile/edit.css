@@ -1,0 +1,122 @@
+.edit-title {
+    text-align: center;
+    margin-top: 5%;
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 39px;
+}
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 18px;
+    color: #151A1E;
+}
+.input-field {
+    margin-top: -3%;
+    background-color: transparent;
+    border: 2px solid #151A1E;
+    padding: 9px;
+    border-radius: 11px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+}
+.cancel-button {
+    /* position:absolute; */
+    /* top: 80%;
+    left: 43%; */
+    width: 90px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+    border: 0px;
+    color: white;
+    background: #212529;
+    border-radius: 10px;
+}
+.cancel-button:hover {
+    cursor: pointer;
+    border: 2px solid #212529;
+    color: #212529;
+    background: #f9f9f9;
+}
+.cancel-button:active {
+    cursor: pointer;
+    border: 0px;
+    color: white;
+    background: #212529;
+}
+.confirm-button {
+    /* position:absolute; */
+    /* top: 80%;
+    left: 52%; */
+    margin-left: 40px;
+    width: 90px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+    border: 0px;
+    color: white;
+    background: #04009A;
+    border-radius: 10px;
+}
+.confirm-button:hover {
+    cursor: pointer;
+    border: 2px solid #04009A;
+    color: #04009A;
+    background: #f9f9f9;
+}
+.confirm-button:active {
+    cursor: pointer;
+    border: 0px;
+    color: white;
+    background: #04009A;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (min-width: 301px) and (max-width: 630px){
+    .edit-title {
+        margin-top: 50px;
+    }
+    .form {
+        width: 83%;
+        margin-top: 30px;
+    }
+    .last-input-field {
+        height: 120px;
+    }
+    .confirm-button:active {
+        cursor: pointer;
+        border: 2px solid #04009A;
+        color: #04009A;
+        background: #f9f9f9;
+    }
+    .cancel-button:active {
+        cursor: pointer;
+        border: 2px solid #212529;
+        color: #212529;
+        background: #f9f9f9;
+    }
+    .button-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
