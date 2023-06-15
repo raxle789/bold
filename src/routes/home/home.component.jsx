@@ -12,9 +12,7 @@ import homePressed from "../../assets/dashboard ditekan.svg";
 import listUnpressed from "../../assets/kalender.svg";
 import profileUnpressed from "../../assets/user.svg";
 import { userData } from "../log in/log-in.component";
-import { addUser, getUserField, getUser } from "../../utils/firebase/firebase.util";
-import { signOutUser } from '../../utils/firebase/firebase.util';
-import { useNavigate } from 'react-router-dom';
+import { addUser, getUserField } from "../../utils/firebase/firebase.util";
 
 const Home = () => {
     const key = "USER_DATA";

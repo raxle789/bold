@@ -26,8 +26,9 @@ const LogIn = () => {
     return (
         <>
             <div className='log-in-container' style={{display:"flex", alignItems:"center", height:"100vh"}}>
-                <div>
+                <div className='top-container'>
                     <h1 className="bold-title">Bold.</h1>
+                    <h3 className='log-app-desc'>A Rote Management Tool</h3>
                 </div>
                 <div className="main-container">
                     <h2 className="log-in-title">Log in</h2>

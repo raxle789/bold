@@ -23,7 +23,7 @@ const [isLoading, setIsLoading] = useState(false);
       firstDate.setDate(1);
       setFirstDayIndex(firstDate.getDay());
       setLastDays(new Date(firstDate.getFullYear(), firstDate.getMonth()+1, 0).getDate());
-    };
+    }; 
 
     useEffect(() => {
       renderCalendar();
@@ -144,7 +144,7 @@ const [isLoading, setIsLoading] = useState(false);
         }
     }
 
-    // const gabung = checkSign + checkSignUnpressed;
+    
     const handleCheckClick = async (e) => {
       const indexItems = e.target.dataset.index;
 
@@ -237,7 +237,6 @@ const [isLoading, setIsLoading] = useState(false);
             ))}
           </div>
         </main>
-        {/* <br /><br /><br /><br /><br /><br /><br /><br /> */}
         <div className='footer-space'></div>
         <div className='navigation'>
             <Link to="/home"><img src={homeUnpressed} alt="home unpressed" className='home-button' /></Link>
@@ -249,30 +248,3 @@ const [isLoading, setIsLoading] = useState(false);
 }
 
 export default List;
-
-
-
-    // if (user) {
-    //   // User is signed in, see docs for a list of available properties
-    //   // https://firebase.google.com/docs/reference/js/firebase.User
-    //   // ...
-    // } else {
-    //   // No user is signed in.
-    // }
-    // const dataFromUser = userData();
-    // const ID = dataFromUser.uid;
-
-
-
-    // let list = {items: [
-    //         {id: '1241435', title: 'Menghafal Ibukota', isComplete: false}, 
-    //         {id: '1241455', title: 'Menghafal Mata Uang', isComplete: false}
-    //     ]};
-    // let [memoryList, setMemoryList] = useState({items: []});
-    // console.log("memory list", memoryList);
-    // const daftar = async () => {
-      //   await getList(dataFromUser.uid, formattedDate).then(result => {
-        //     memoryList = result;
-        //   });
-        // }
-        // setMemoryList( daftar );

@@ -10,14 +10,9 @@ import {
   getFirestore,
   doc,
   getDoc,
-  getDocs,
   setDoc,
   deleteDoc,
   collection,
-  writeBatch,
-  query,
-  updateDoc,
-  collectionGroup,
 } from "firebase/firestore";
 import "firebase/compat/firestore";
 
@@ -48,11 +43,7 @@ export const addCollectionAndDocuments = async (
 ) => {
   const userDocRef = doc(db, "users", uid);
   const memoryListCollectionRef = collection(userDocRef, "memory-list");
-  // const batch = writeBatch(db);
   const memoryListItemRef = doc(memoryListCollectionRef, docTitle);
-
-  // batch.set(memoryListItemRef, objectsToAdd);
-  // await batch.commit();
   await setDoc(memoryListItemRef, objectsToAdd, { merge: true });
   console.log("done");
 };
@@ -70,9 +61,6 @@ export const deleteCollectionAndDocuments = async (
 
 export const addUser = async (uid, objectsToAdd) => {
   const userDocRef = doc(db, "users", uid);
-
-  // batch.set(memoryListItemRef, objectsToAdd);
-  // await batch.commit();
   await setDoc(userDocRef, objectsToAdd, { merge: true });
   console.log("done add user");
 };

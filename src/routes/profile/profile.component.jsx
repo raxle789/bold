@@ -14,7 +14,7 @@ import avatar2 from '../../assets/avatar cewe.jpg';
 const Profile = () => {
     const key = 'USER_DATA';
     const checksStorage = () => {
-        if (typeof(Storage) === undefined) {
+        if (typeof(Storage) === 'undefined') {
           alert('Browser kamu tidak mendukung local storage, gunakanlah browser populer');
           return false;
         } else {
@@ -51,11 +51,9 @@ const Profile = () => {
             <header className="header-page">
                 <h1 className="page-title">Profile</h1>
             </header>
-            {/* <Link to="/edit-profile"><img src={editIcon} alt="edit Icon" className='edit-button' /></Link> */}
             <main className="body-container" style={{display: "flex", alignItems:"center", height:"70vh"}}>
                 <div className='avatar-container'>
                     <img src={userField.gender === "Male" ? avatar1 : avatar2} className='avatar' alt="avatar" />
-                    {/* <Link to="/edit-profile"><img src={editIcon} alt="edit Icon" className='edit-button' /></Link> */}
                 </div>
                 <div className='profile-container' style={{display: "flex"}}>
                     <div className='sub-profile-container1'>
@@ -63,8 +61,6 @@ const Profile = () => {
                         <h2 className='display-name-label desc-label'>Display Name</h2>
                         <h2 className='bio-label desc-label'>Bio</h2>
                     </div>
-                    {/* <div className='sub-profile-container3'>
-                    </div> */}
                     <div className='sub-profile-container2'>
                         <h2 className='name desc'>{userField.displayName}</h2>
                         <h2 className='display-name desc'>{userField.greetingsName}</h2>
@@ -88,24 +84,10 @@ const Profile = () => {
                 https://colorhunt.co/<br />
                 https://icons8.com/<br />
                 id.pinterest.com <br />
-                vercel.app<br /> <br />
+                netlify.app<br /> <br />
             </div>
         </>
     );
 }
 
 export default Profile;
-
-// <div className='sub-profile-container1'>
-//                         <h2 className='name-label'>Name</h2>
-//                         <h2 className='display-name-label'>Display Name</h2>
-//                         <h2 className='bio-label'>Bio</h2>
-//                     </div>
-//                     <div className='sub-profile-container2'>
-//                         <h2 className='name'>{userField.displayName}</h2>
-//                         <h2 className='display-name'>{userField.greetingsName}</h2>
-//                         <h2 className='bio'>{userField.bio}</h2>
-//                         <div className='logout-button' >
-//                             <Link className='logout-text' onClick={handleSignOut}>Log out</Link>
-//                         </div>
-//                     </div>

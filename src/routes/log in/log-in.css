@@ -2,8 +2,6 @@
     width: 150px;
     height: 130px;
     position: absolute;
-    /* left: 13%;
-    top: 32%; */
     top: 39%;
     left: -19%;
     border-radius: 50%;
@@ -15,8 +13,6 @@
     height: 160px;
     border-radius: 50%;
     position: absolute;
-    /* left: 18%;
-    top: 46%; */
     top: 65%;
     left: -5%;
     background: #5B8FB9;
@@ -34,38 +30,39 @@
 .rectangle2 {
     width: 450px;
     height: 380px;
-    /* position: absolute; */
-    /* left: 8%; */
-    /* top: 22%; */
     background: linear-gradient(124.87deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
     filter: blur(50px);
 }
+.top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .bold-title {
-    /* position: absolute; */
-    /* left: 19%; */
-    /* top: 29%; */
     color: #151A1E;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 91px;
-
+    margin: 0;
+}
+.log-app-desc {
+    color: #151A1E;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0;
 }
 .main-container {
     background-color: white;
     width: 350px;
     height: 260px;
-    /* position: absolute; */
-    /* top: 29%; */
-    /* left: 56%; */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 13px;
     margin-left: 16px;
 }
 .log-in-title {
-    /* position: absolute; */
-    /* top: -7%; */
-    /* left: 9%; */
     color: #151A1E;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -77,9 +74,6 @@
 .sub-container {
     width: 290px;
     height: 37px;
-    /* position: absolute; */
-    /* top: 47%; */
-    /* left: 9%; */
     border: 1px solid #151A1E;
     border-radius: 25px;
     margin-top: 42px;
@@ -93,9 +87,6 @@
 .sub-container2 {
     width: 290px;
     height: 37px;
-    /* position: absolute; */
-    /* top: 78%; */
-    /* left: 9%; */
     border: 1px solid #151A1E;
     border-radius: 25px;
     margin-top: -6px;
@@ -107,9 +98,6 @@
     cursor: pointer;
 }
 .authentication {
-    /* position: absolute; */
-    /* top: -16px; */
-    /* right: 10%; */
     color: #151A1E;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -118,9 +106,6 @@
     margin-left: 30px;
 }
 .other-option {
-    /* position: absolute; */
-    /* top: 62%; */
-    /* left: 27%; */
     color: #04009A;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -132,9 +117,6 @@
 .google-logo {
     width: 28px;
     height: 28px;
-    /* position: absolute; */
-    /* top: 3px; */
-    /* left: 5%; */
     margin-left: 17px;
 }
 .blur-background {
@@ -149,25 +131,30 @@
 }
 
 @media screen and (min-width: 301px) and (max-width: 630px){
+    .top-container {
+        margin-bottom: 17.5vh;
+    }
     .bold-title {
-        position: relative;
-        top: -45%;
         font-size: 75px;
+        margin: 0;
+    }
+    .log-app-desc {
+        font-size: 21px;
     }
     .ellips2 {
         position: relative;
         left: -33px;
-        top: -155px;
+        top: -21vh;
     }
     .ellips1 {
        position: relative;
        left: 8px;
-       top: 65px;
+       top: 10vh;
     }
     .rectangle1 {
         position: relative;
         left: 120px;
-        top: -285px;
+        top: -39vh;
     }
     .log-in-title {
         margin-left: 30px;
@@ -177,12 +164,6 @@
         margin-left: 0;
         width: 98%;
         height: 245px;
-        /* flex-direction: column; */
-        /* position: relative; */
-        /* z-index: 5; */
-        /* margin-top: 25%; */
-        /* margin-right: auto; */
-        /* left: 5%; */
     }
     .sub-container {
         width: 86%;
@@ -198,4 +179,7 @@
         margin-left: auto;
         margin-right: auto;
     }
+}
+@media screen and (min-width: 410px) and (max-width: 630px) {
+    
 }
