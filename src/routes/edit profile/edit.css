@@ -33,9 +33,6 @@
     font-size: 16px;
 }
 .cancel-button {
-    /* position:absolute; */
-    /* top: 80%;
-    left: 43%; */
     width: 90px;
     height: 40px;
     font-family: 'Roboto';
@@ -59,9 +56,6 @@
     background: #212529;
 }
 .confirm-button {
-    /* position:absolute; */
-    /* top: 80%;
-    left: 52%; */
     margin-left: 40px;
     width: 90px;
     height: 40px;

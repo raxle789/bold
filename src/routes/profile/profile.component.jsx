@@ -51,7 +51,7 @@ const Profile = () => {
             <header className="header-page">
                 <h1 className="page-title">Profile</h1>
             </header>
-            <main className="body-container" style={{display: "flex", alignItems:"center", height:"70vh"}}>
+            <main className="body-container" style={{display: "flex", alignItems:"center"}}>
                 <div className='avatar-container'>
                     <img src={userField.gender === "Male" ? avatar1 : avatar2} className='avatar' alt="avatar" />
                 </div>

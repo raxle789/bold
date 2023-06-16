@@ -180,6 +180,14 @@
         margin-right: auto;
     }
 }
-@media screen and (min-width: 410px) and (max-width: 630px) {
-    
+@media screen and (min-width: 375px) and (max-width: 390px) {
+    .ellips2 {
+        top: -25vh;
+    }
+    .ellips1 {
+       top: 6vh;
+    }
+    .rectangle1 {
+        top: -44vh;
+    }
 }

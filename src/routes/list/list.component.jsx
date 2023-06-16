@@ -7,7 +7,6 @@ import profileUnpressed from '../../assets/user.svg';
 import checkSignUnpressed from '../../assets/bulat.svg';
 import checkSignPressed from '../../assets/bulat-ceklis.svg';
 import wasteUnpressed from '../../assets/sampah.svg';
-import wastePressed from '../../assets/sampah ditekan.svg';
 import arrow from '../../assets/back-next.svg';
 import { addCollectionAndDocuments, getList, getUserField, addUser, deleteCollectionAndDocuments } from '../../utils/firebase/firebase.util';
 
@@ -17,7 +16,7 @@ const List = () => {
     const [datePrint, setDatePrint] = useState(new Date().toDateString());
     const [firstDayIndex, setFirstDayIndex] = useState(date.getDay());
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const [isLoading, setIsLoading] = useState(false);
+
     const renderCalendar = () => {
       const firstDate = new Date(date.valueOf());
       firstDate.setDate(1);
@@ -190,7 +189,7 @@ const [isLoading, setIsLoading] = useState(false);
         <header className="header-page">
             <h1 className="page-title">List</h1>
         </header>
-        <main className="body-container" style={{display: "flex", justifyContent:"space-evenly", alignItems:"center", height:"70vh"}}>
+        <main className="body-container" style={{display: "flex", justifyContent:"space-evenly", alignItems:"center"}}>
           <div className="calendar-container">
               <div className="date1-container">
                 <div className="arrow-prev-container" onClick={prevMonth}><img src={arrow} alt="arrow prev" className="arrow-prev" /></div>

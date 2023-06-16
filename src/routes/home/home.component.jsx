@@ -88,7 +88,7 @@ const Home = () => {
             <header className="header-page">
                 <h1 className="page-title">Home</h1>
             </header>
-            <main className="body-container" style={{display: "flex", justifyContent:"space-evenly", alignItems:"center", height:"70vh"}}>
+            <main className="body-container" style={{display: "flex", justifyContent:"space-evenly", alignItems:"center"}}>
                 <div className="left-side-info">
                     <h2 className="greetings">
                         Hello,{" "}

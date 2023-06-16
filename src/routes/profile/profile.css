@@ -14,23 +14,11 @@
     margin-top: 40px;
     width: 600px;
     height: 400px;
-    /* border: 1px solid #151A1E; */
-    /* flex-direction: column; */
-
 }
 .sub-profile-container1 {
-    /* margin-top: -110px; */
     width: 230px;
-    /* border: 1px solid #151A1E; */
-}
-.sub-profile-container2 {
-    /* position: a */
-    /* margin-top: 3%;
-    margin-left: 30px; */
-    /* border: 1px solid #151A1E; */
 }
 .name-label {
-    /* position: absolute; */
     top: 22%;
     left: 45%;
     color: #151A1E;
@@ -40,7 +28,6 @@
     font-size: 22px;
 }
 .display-name-label {
-    /* position: absolute; */
     top: 28%;
     left: 45%;
     color: #151A1E;
@@ -50,7 +37,6 @@
     font-size: 22px;
 }
 .bio-label {
-    /* position: absolute; */
     top: 34%;
     left: 45%;
     color: #151A1E;
@@ -60,7 +46,6 @@
     font-size: 22px;
 }
 .name {
-    /* position: absolute; */
     top: 22%;
     left: 58%;
     color: #04009A;
@@ -70,7 +55,6 @@
     font-size: 22px;
 }
 .display-name {
-    /* position: absolute; */
     top: 28%;
     left: 58%;
     color: #04009A;
@@ -80,9 +64,6 @@
     font-size: 22px;
 }
 .bio {
-    /* position: absolute; */
-    /* top: 34%;
-    left: 58%; */
     margin-bottom: 100px;
     max-width: 480px;
     color: #04009A;
@@ -94,10 +75,6 @@
 .logout-button {
     width: 165px;
     height: 43px;
-    /* position: absolute; */
-    /* z-index: 0;
-    top: 68%;
-    left: 60%; */
     margin-left: 120px;
     background: transparent;
     border: 1px solid #151A1E;
@@ -110,7 +87,6 @@
     background-color: #F4F4F4;
 }
 .logout-text {
-    /* position: absolute; */
     top: 11%;
     left: 26%;
     color: #151A1E;
@@ -123,15 +99,11 @@
 .avatar {
     width: 240px;
     height: auto;
-    /* position: absolute; */
     top: 26%;
     left: 14%;
     border-radius: 50%;
 }
 .credits-info {
-    /* position: absolute; */
-    /* top: 110%;
-    left: 2%; */
     margin-left: 30px;
     color: #151A1E;
     font-family: 'Roboto', sans-serif;
@@ -147,7 +119,7 @@
         width: 360px;
         display: flex;
         justify-content: center;
-        margin-top: 30%;
+        margin-top: 10%;
     }
     .avatar {
         width: 230px;
@@ -167,21 +139,16 @@
     }
     .desc-label {
         font-size: 19px;
-        /* padding-bottom: 20px; */
-        /* margin-left: -15%; */
     }
     .desc1 {
-        /* position: relative; */
         top: -4.5%;
         left: 2%;
     }
     .desc2 {
-        /* position: relative; */
         top: 1.6%;
         left: 2%;
     }
     .desc3 {
-        /* position: relative; */
         top: 7%;
         left: 2%;
     }
@@ -197,8 +164,6 @@
     }
     .profile-container {
         width: 90%;
-        /* margin */
-        /* flex-direction: column; */
     }
     .credits-info {
         margin-top: 30%;

@@ -2,9 +2,6 @@
     margin-top: 40px;
 }
 .page-title {
-    /* position: absolute; */
-    /* top: 1%;
-    left: 5%; */
     color: #151A1E;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -22,16 +19,12 @@
 .header-gradient {
     width: 100%;
     height: 110px;
-    /* position: absolute; */
-    /* top: 3%; */
     background: linear-gradient(269.76deg, rgba(48, 30, 103, 0.792) -2.99%, rgba(91, 143, 185, 0.60816) 41.22%, rgba(182, 234, 218, 0.43416) 81.35%, rgba(182, 234, 218, 0.36) 102.33%);
     filter: blur(40px);
 }
 .header-gradient-cover {
     width: 100%;
     height: 180px;
-    /* position: absolute; */
-    /* top: 0%; */
     background: linear-gradient(98.68deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
     filter: blur(50px);
 }
@@ -39,9 +32,6 @@
     margin-top: -50px;
 }
 .greetings {
-    /* position: absolute; */
-    /* top: 20%;
-    left: 5%; */
     margin-top: 9px;
     color: #151A1E;
     font-family: 'Roboto', sans-serif;
@@ -50,9 +40,6 @@
     font-size: 30px;
 }
 .quotes {
-    /* position: absolute; */
-    /* top: 28%;
-    left: 5%; */
     margin-top: -20px;
     color: #04009A;
     font-family: 'PT Serif', serif;
@@ -61,18 +48,12 @@
 .statistic-container {
     width: 450px;
     height: 155px;
-    /* position: absolute; */
-    /* top: 41%;
-    left: 5%; */
     margin-top: 35px;
     background: #FFFFFF;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
 }
 .statistic {
-    /* position: absolute; */
-    /* top: -1%;
-    left: 5%; */
     margin-top: -4px;
     margin-left: 27px;
     color: #151A1E;
@@ -82,17 +63,11 @@
     font-size: 26px;
 }
 .created-status {
-    /* position: absolute; */
-    /* top: 20%;
-    left: 7%; */
     margin-top: -15px;
     margin-left: 27px;
 
 }
 .finished-status {
-    /* position: absolute; */
-    /* top: 41%;
-    left: 7%; */
     margin-top: -29px;
     margin-left: 27px;
 }
@@ -105,7 +80,6 @@
 .gif-container {
     width: 500px;
     height: 294px;
-    /* position: absolute; */
     top: 24%;
     left: 50%;
     background: #FFFFFF;
@@ -118,10 +92,6 @@
 .gif {
     width: 348px;
     height: auto;
-    /* position: absolute; */
-    /* top: 16%;
-    bottom: auto;
-    left: 15%; */
 }
 .navigation {
     width: 302px;
@@ -136,25 +106,23 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    -webkit-position: fixed;
 }
 .home-button {
     width: 41px;
     height: 41px;
-    /* position: absolute; */
     top: 7%;
     left: 13.9%;
 }
 .list-button {
     width: 41px;
     height: 41px;
-    /* position: absolute; */
     top: 7%;
     left: 44.9%;
 }
 .profile-button {
     width: 41px;
     height: 41px;
-    /* position: absolute; */
     top: 7%;
     left: 74.5%;
 }
@@ -172,7 +140,6 @@
     }
     .left-side-info {
         margin-top: 30px;
-        /* margin-left: 52px; */
         width: 90%;
     }
     .greetings {
@@ -201,7 +168,6 @@
         font-size: 25px;
     }
     .finished-status {
-        /* margin-top: -29px; */
         margin-left: 25px;
         margin-top: -17px;
         font-size: 25px;
@@ -219,11 +185,6 @@
     }
     .navigation {
         top: 87%;
-        /* left: 12.3%; */
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-        /* right: 11%; */
-        /* transform: translateY(-50%); */
         left: calc(50% - 152.5px);
         width: 305px;
         height: 49px;
