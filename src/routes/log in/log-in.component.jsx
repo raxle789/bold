@@ -1,28 +1,23 @@
 import './log-in.css';
 import { ReactComponent as GoogleLogo } from '../../assets/Google__Logo.svg';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, RedirectSignIn } from '../../utils/firebase/firebase.util';
-import { getRedirectResult } from "firebase/auth";
+import { PopupSignIn } from '../../utils/firebase/firebase.util';
 
 let ID = '';
 const LogIn = () => {
     const navigate = useNavigate();
-    useEffect(() => {
-        const fetchSignInResult = async () => {
-            try {
-                const result = await getRedirectResult(auth);
-                if(result) {
-                    navigate('/home');
-                    ID = result.user;
-                    console.log('ID', ID);
-                }
-            } catch (error) {
-                console.log(error);
+    const fetchSignInResult = async () => {
+        try {
+            const result = await PopupSignIn();
+            if(result) {
+                ID = result.user;
+                console.log('ID', ID);
+                navigate('/home');
             }
-        };
-        fetchSignInResult();
-    }, []);
+        } catch (error) {
+            console.log(error);
+        }
+    }; 
     return (
         <>
             <div className='log-in-container' style={{display:"flex", alignItems:"center", height:"100vh"}}>
@@ -32,12 +27,12 @@ const LogIn = () => {
                 </div>
                 <div className="main-container">
                     <h2 className="log-in-title">Log in</h2>
-                    <div className="sub-container" onClick={RedirectSignIn} style={{display:"flex",alignItems:"center"}}>
+                    <div className="sub-container" onClick={fetchSignInResult} style={{display:"flex",alignItems:"center"}}>
                         <GoogleLogo className="google-logo" />
                         <h3 className="authentication">Log in with Google</h3>
                     </div>
                     <p className="other-option">Don't have an account?</p>
-                    <div className="sub-container2" onClick={RedirectSignIn} style={{display:"flex",alignItems:"center"}}>
+                    <div className="sub-container2" onClick={fetchSignInResult} style={{display:"flex",alignItems:"center"}}>
                         <GoogleLogo className="google-logo" />
                         <h3 className="authentication">Sign up with Google</h3>
                     </div>

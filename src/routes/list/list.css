@@ -203,7 +203,7 @@ body{
   }
   .memory-container {
     width: 88%;
-    height: 1000px;
+    height: auto;
   }
   .memory-title-container {
     width: 71%;
@@ -226,5 +226,21 @@ body{
   }
   .waste-button {
     margin-bottom: -2px;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 630px){
+  .month-year {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .date2-container {
+    margin-top: 1.5vh;
+  }
+  .weekdays div {
+    font-size: 16px;
+  }
+  .days div {
+    font-size: 17px;
   }
 }
