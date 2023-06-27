@@ -12,6 +12,9 @@
 /build
 /deploy web
 
+#BOLD FIREBASE CONFIG
+firebase-config.txt
+
 # misc
 .DS_Store
 .env.local

@@ -17,12 +17,12 @@ import {
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB-hGV4BHj7otKsrUP1EQ7l29jLKdeM6bQ",
-  authDomain: "bold-f7fa9.firebaseapp.com",
-  projectId: "bold-f7fa9",
-  storageBucket: "bold-f7fa9.appspot.com",
-  messagingSenderId: "92251694375",
-  appId: "1:92251694375:web:efc2b04cbf4b9dee62b502",
+  apiKey: "YOUR API KEY",
+  authDomain: "YOUR AUTH DOMAIN",
+  projectId: "YOUR PROJECT ID",
+  storageBucket: "YOUR STORAGE BUCKET",
+  messagingSenderId: "YOUR MESSAGING SENDER ID",
+  appId: "YOUR APP ID",
 };
 const firebaseApp = initializeApp(firebaseConfig);
 
