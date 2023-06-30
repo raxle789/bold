@@ -9,8 +9,35 @@ import checkSignPressed from '../../assets/bulat-ceklis.svg';
 import wasteUnpressed from '../../assets/sampah.svg';
 import arrow from '../../assets/back-next.svg';
 import { addCollectionAndDocuments, getList, getUserField, addUser, deleteCollectionAndDocuments } from '../../utils/firebase/firebase.util';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const List = () => {
+    const enterNotify = () => {
+      toast('🦄 New rote saved!', {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    const wasteNotify = () => {
+      toast.error('Rote deleted!', {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+
     const [date, setDate] = useState(new Date());
     const [lastDays, setLastDays] = useState(1);
     const [datePrint, setDatePrint] = useState(new Date().toDateString());
@@ -127,6 +154,7 @@ const List = () => {
       userField.createdItems += 8;
       await addUser(user.uid, userField);
       getData();
+      enterNotify();
     }
 
 
@@ -179,6 +207,7 @@ const List = () => {
 
       await addCollectionAndDocuments(user.uid, formattedDate, memoryList);
       getData();
+      wasteNotify();
     }
     return (
       <>
@@ -221,7 +250,7 @@ const List = () => {
               </div>
           </div> 
           <div className='memory-container'>
-            <input type='text' className='memory-input' onKeyPress={handleEnterPress} placeholder="Masukkan hafalan baru"/>
+            <input type='text' className='memory-input' onKeyPress={handleEnterPress} placeholder="Make New Rote"/>
             <h3 className='date-info'>{datePrint}</h3>
             {memoryList.items.map((unit, indeks)=>(
               <div key={unit.id} className='memory-item'>
@@ -242,6 +271,7 @@ const List = () => {
             <Link to="/list"><img src={listPressed} alt="list pressed" className='list-button' /></Link>
             <Link to="/profile"><img src={profileUnpressed} alt="profile unpressed" className='profile-button' /></Link>
         </div>
+        <ToastContainer />
       </>
     );
 }

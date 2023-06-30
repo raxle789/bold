@@ -28,9 +28,6 @@
     background: linear-gradient(98.68deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
     filter: blur(50px);
 }
-/* .left-side-info {
-    margin-top: -50px;
-} */
 .greetings {
     margin-top: 9px;
     color: #151A1E;
@@ -138,12 +135,11 @@
         justify-content: center;
     }
     .left-side-info {
-        margin-top: 30px;
         width: 90%;
     }
     .greetings {
         margin-left: 6px;
-        font-size: 30px;
+        font-size: 29px;
     }
     .quotes {
         margin-left: 6px;
@@ -151,32 +147,35 @@
     }
     .statistic-container {
         width: 100%;
-        height: 128px;
+        height: auto;
+        padding-bottom: 4px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 19px;
     }
     .statistic {
         margin-top: -4px;
-        margin-left: 25px;
-        font-size: 23px;
+        margin-left: 22px;
+        font-size: 20px;
     }
     .created-status {
         margin-top: -11px;
-        margin-left: 25px;
-        font-size: 25px;
+        margin-left: 22px;
+        font-size: 22px;
     }
     .finished-status {
-        margin-left: 25px;
+        margin-left: 22px;
         margin-top: -17px;
-        font-size: 25px;
+        font-size: 22px;
     }
     .gif-container {
+        height: auto;
         margin-top: 12px;
-        padding: 40px;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
+        padding-top: 28px;
+        padding-bottom: 28px;
     }
     .gif {
         width: 280px;
