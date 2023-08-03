@@ -102,10 +102,10 @@ const Home = () => {
                         <br />
                         <h2 className="statistic">Statistic</h2> 
                         <h1 className="created-status">
-                            <span className="sub-created-status">{userField.createdItems}</span> Rote Created
+                            <span className="sub-created-status">{userField.createdItems}</span> Rotes Created
                         </h1>
                         <h1 className="finished-status">
-                            <span className="sub-finished-status">{userField.finishedItems}</span> Rote Finished
+                            <span className="sub-finished-status">{userField.finishedItems}</span> Rotes Finished
                         </h1>
                     </div>
                 </div>

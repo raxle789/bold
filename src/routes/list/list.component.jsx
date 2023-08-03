@@ -22,7 +22,7 @@ const List = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     }
     const wasteNotify = () => {
@@ -34,7 +34,7 @@ const List = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     }
 
