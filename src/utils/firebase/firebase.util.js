@@ -48,10 +48,7 @@ export const addCollectionAndDocuments = async (
   console.log("done");
 };
 
-export const deleteCollectionAndDocuments = async (
-  uid,
-  docTitle
-) => {
+export const deleteCollectionAndDocuments = async (uid, docTitle) => {
   const userDocRef = doc(db, "users", uid);
   const memoryListCollectionRef = collection(userDocRef, "memory-list");
   const memoryListItemRef = doc(memoryListCollectionRef, docTitle);

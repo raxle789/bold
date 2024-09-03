@@ -1,176 +1,185 @@
 .avatar-container {
-    margin-top: -60px;
-    margin-left: 35px;
-    margin-right: 35px;
+  margin-top: -60px;
+  margin-left: 35px;
+  margin-right: 35px;
 }
 .edit-button {
-    position: relative;
-    bottom: 380px;
-    left: 30%;
-    width: 30px;
-    height: auto;
+  position: relative;
+  bottom: 380px;
+  left: 30%;
+  width: 30px;
+  height: auto;
 }
 .profile-container {
-    margin-top: 40px;
-    width: 600px;
-    height: 400px;
+  margin-top: 40px;
+  width: 600px;
+  height: 400px;
 }
 .sub-profile-container1 {
-    width: 230px;
+  width: 230px;
 }
 .name-label {
-    top: 22%;
-    left: 45%;
-    color: #151A1E;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
+  top: 22%;
+  left: 45%;
+  color: #151a1e;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
 }
 .display-name-label {
-    top: 28%;
-    left: 45%;
-    color: #151A1E;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
+  top: 28%;
+  left: 45%;
+  color: #151a1e;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
 }
 .bio-label {
-    top: 34%;
-    left: 45%;
-    color: #151A1E;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
+  top: 34%;
+  left: 45%;
+  color: #151a1e;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
 }
 .name {
-    top: 22%;
-    left: 58%;
-    color: #04009A;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
+  top: 22%;
+  left: 58%;
+  color: #04009a;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
 }
 .display-name {
-    top: 28%;
-    left: 58%;
-    color: #04009A;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
+  top: 28%;
+  left: 58%;
+  color: #04009a;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
 }
 .bio {
-    margin-bottom: 100px;
-    max-width: 480px;
-    color: #04009A;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
+  margin-bottom: 100px;
+  max-width: 480px;
+  color: #04009a;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
 }
 .logout-button {
-    width: 165px;
-    height: 43px;
-    margin-left: 120px;
-    background: transparent;
-    border: 1px solid #151A1E;
-    border-radius: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 165px;
+  height: 43px;
+  margin-left: 120px;
+  background: transparent;
+  border: 1px solid #151a1e;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .logout-button:hover {
-    background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 .logout-text {
-    top: 11%;
-    left: 26%;
-    color: #151A1E;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    text-decoration: none;
+  top: 11%;
+  left: 26%;
+  color: #151a1e;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  text-decoration: none;
 }
 .avatar {
-    width: 240px;
-    height: auto;
-    top: 26%;
-    left: 14%;
-    border-radius: 50%;
+  width: 240px;
+  height: auto;
+  top: 26%;
+  left: 14%;
+  border-radius: 50%;
 }
 .credits-info {
-    margin-left: 30px;
-    color: #151A1E;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 600;
+  margin-left: 30px;
+  color: #151a1e;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 600;
 }
 .body-container {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
-@media screen and (min-width: 301px) and (max-width: 630px){
-    .avatar-container {
-        width: 360px;
-        display: flex;
-        justify-content: center;
-        margin-top: 10%;
-    }
-    .avatar {
-        width: 230px;
-        height: auto;
-        border-radius: 50%;
-    }
-    .edit-button {
-        position: absolute;
-        top: 18%;
-        left: 80%;
-    }
-    .sub-profile-container2 {
-        width: 335px;
-        height: 335px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .desc-label {
-        font-size: 19px;
-    }
-    .desc1 {
-        top: -4.5%;
-        left: 2%;
-    }
-    .desc2 {
-        top: 1.6%;
-        left: 2%;
-    }
-    .desc3 {
-        top: 7%;
-        left: 2%;
-    }
-    .desc {
-        font-size: 19px;
-        margin-left: 4px;
-    }
-    .desc4 {
-        position: relative;
-        top: -15%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .profile-container {
-        width: 90%;
-    }
-    .credits-info {
-        margin-top: 30%;
-        margin-bottom: 150px;
-    }
-    .logout-button {
-        position: relative;
-        top: 0%;
-    }
+@media screen and (min-width: 301px) and (max-width: 767px) {
+  .avatar-container {
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+  }
+  .avatar {
+    width: 230px;
+    height: auto;
+    border-radius: 50%;
+  }
+  .edit-button {
+    position: absolute;
+    top: 18%;
+    left: 80%;
+  }
+  .sub-profile-container2 {
+    width: 335px;
+    height: 335px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .desc-label {
+    font-size: 19px;
+  }
+  .desc1 {
+    top: -4.5%;
+    left: 2%;
+  }
+  .desc2 {
+    top: 1.6%;
+    left: 2%;
+  }
+  .desc3 {
+    top: 7%;
+    left: 2%;
+  }
+  .desc {
+    font-size: 19px;
+    margin-left: 4px;
+  }
+  .desc4 {
+    position: relative;
+    top: -15%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile-container {
+    width: 90%;
+  }
+  .credits-info {
+    margin-top: 30%;
+    margin-bottom: 150px;
+  }
+  .logout-button {
+    position: relative;
+    top: 0%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .avatar-container {
+    margin-top: 8%;
+  }
+  .profile-container {
+    margin-top: 10%;
+  }
 }
